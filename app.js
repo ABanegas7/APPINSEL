@@ -26,9 +26,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/', routes);
 // app.use('/users', users);
 app.get("/",function(req,res){
-  res.render("Inicio");
-})
+  res.render("login");
+});
 
+app.post("/login",function(req,res){
+  res.redirect("/index"); //cuando se tenga base ira a validar
+});
+
+app.get("/index",function(req,res){
+  res.render("inicio")
+});
 
 
 
