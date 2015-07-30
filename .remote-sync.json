@@ -1,0 +1,13 @@
+{
+  "uploadOnSave": true,
+  "hostname": "192.168.136.131",
+  "port": "22",
+  "target": "/root/InselApp",
+  "ignore": [
+    ".git/**",
+    "node_modules/**"
+  ],
+  "username": "root",
+  "password": "seminario",
+  "transport": "scp"
+}
