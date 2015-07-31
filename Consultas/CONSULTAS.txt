@@ -1,5 +1,5 @@
 db.insel.find();
-db.insel.find({"_id":2});
+db.insel.find({"cod":4321});
 db.insel.findOne();
 
 > upd={"$set":{"keys":["Ctl"]}};  para agregar un arreglo
@@ -20,7 +20,7 @@ BORRAR
 
 > db.dices.remove(query)
 WriteResult({ "nRemoved" : 1 })
-> 
+>
 
 db.dices.drop() borrar coleccion
 > doc.usuario="Alex" asigna nuevo atributo "usuario":"Alex"
@@ -49,16 +49,16 @@ db.dices.drop() borrar coleccion
 > db.randoms.count() contar documentos de la coleccion random
 
 > db.randoms.find().pretty() todos los documentos organizados
- 
+
 > db.randoms.find({"numero":200000}) buscar solo el domumento 200000
 
 > db.randoms.find({"mean":{$lt:1}}).pretty() $lt es menor que
 
-> db.randoms.find({"mean":{$lt:1}}).count() contar cuantos cumplen con la condicion 
+> db.randoms.find({"mean":{$lt:1}}).count() contar cuantos cumplen con la condicion
 
 > db.randoms.find({"mean":{$gt:1}}).pretty() $gt es mayor que
 
-> db.randoms.find({"mean":{$gt:1}}).pretty() $gte es mayor o igual que 
+> db.randoms.find({"mean":{$gt:1}}).pretty() $gte es mayor o igual que
 
 
 entrar a mongo
@@ -67,16 +67,16 @@ entrar a mongo
 
 > db.randoms.find({$or:[{"mean":{$lte:10}},{"mean":{$gte:90}}]}).count() sacar los or
 
-cuantos doc tienen el atributo pct=50 
+cuantos doc tienen el atributo pct=50
 > db.randoms.find({"pct":50}).count()
-cuantos doc pct entre 0 1 
+cuantos doc pct entre 0 1
 > db.randoms.find({$and:[{"pct":{$gt:0}},{"pct":{$lt:1}}]}).count()
 
 doc entre 10 o 20  extremos incluidos o mayores a 95
 
 > db.randoms.find({$or:[{$and:[{"pct":{$gte:10}},{"pct":{$lte:20}}]},{"pct":{$gt:95}}]}).count()
 
- 
+
 
 
 
@@ -95,7 +95,7 @@ vPAlabras.push("Hola");
 
 vPAlabras.push("Adios");
 
-vPAlabras.push("Buenos Días");
+vPAlabras.push("Buenos Dï¿½as");
 
 vPAlabras.push("Buenas Noches");
 
@@ -113,20 +113,20 @@ vPAlabras.push("No hay de que so no mas de papa");
 
 
 for(var i=1;i<=100;i++){
-  
+
 var p1=vPAlabras[(Math.floor(Math.random()*9))],
- 
+
  p2=vPAlabras[(Math.floor(Math.random()*9))],
- 
+
  p3=vPAlabras[(Math.floor(Math.random()*9))],
- 
+
  p4=vPAlabras[(Math.floor(Math.random()*9))],
-  
+
 p5=vPAlabras[(Math.floor(Math.random()*9))];
-  
+
 
 var doc={"num":i,"palabras":[p1,p2,p3,p4,p5]};
- 
+
 db.randomP.insert(doc);
 }
 
@@ -153,7 +153,7 @@ Bene Provatus
 > db.random2.find({$and:[{"Total":{$gte:70}},{"Total":{$lt:85}}]}).count()
 100
 
-Sans Provatus 
+Sans Provatus
 
 > db.random2.find({"Total":{$lt:70}}).count()
 884
@@ -180,7 +180,7 @@ Sans Provatus
 > db.randomP.find({"palabras":"Adios"}).count()
 48
 
-3) Cuantos documentos tienen las palabras "Buenos Días" y "Gracias"
+3) Cuantos documentos tienen las palabras "Buenos Dï¿½as" y "Gracias"
 
 > db.randomP.find({$and:[{"palabras":"Buenos Dias","palabras":"Gracias"}]}).count()
 39
@@ -190,8 +190,7 @@ Sans Provatus
 > db.randomP.find({$and:[{"palabras":"Disculpe","palabras":"Adios"}]}).count()
 48
 
-5) Cuantos documentos tiene las palabras "Pase Usted" o "Bienvenido" 
+5) Cuantos documentos tiene las palabras "Pase Usted" o "Bienvenido"
 
 > db.randomP.find({$or:[{"palabras":"Pase usted"},{"palabras":"Bienvenido"}]}).count()
 69
-
