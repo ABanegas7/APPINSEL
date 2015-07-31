@@ -5,6 +5,7 @@
  */
 var MongoClient = require('mongodb').MongoClient;
 var uri = "mongodb://localhost:27017/Inseldb";
+//                 //ip servidor:puertopordefecto/Inseldb
 
 MongoClient.connect(uri, function(err, db){
     if(err)  throw err;

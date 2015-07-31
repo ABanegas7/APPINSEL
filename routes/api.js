@@ -4,6 +4,7 @@ var apirouter = express.Router();
 function api(db){
     //Colecciones
     var clientes = db.collection("Clientes");
+    //var producto = db.collection("Productos");
     //Rutas
     apirouter.get("/obtenerclientes",
         function(req, res){
@@ -73,6 +74,8 @@ function api(db){
             } );
         }
     ) // eliminarcliente
+
+
     return apirouter;
 }
 
