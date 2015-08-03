@@ -5,9 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-// var routes = require('./routes/index');
-// var users = require('./routes/users');
+var routes = require('./routes/index');
+var users = require('./routes/users');
 
+function returnApp(db){
 var app = express();
 
 // view engine setup
@@ -23,19 +24,18 @@ app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', routes);
-// app.use('/users', users);
-app.get("/",function(req,res){
-  res.render("login");
-});
+app.use('/', routes);
+app.use('/users', users);
 
-app.post("/login",function(req,res){
-  res.redirect("/index"); //cuando se tenga base ira a validar
-});
+//para llamara los modulos se usa la funcion require
+//la uri del modulo y debe especificar
+//en el modulo la exportacion con
+//module.exports = <<funcion>>
+var api = require('./routes/api.js')(db);
+app.use('/api/v1', api);
+//http://localhost:3000/api/v1/obtenerclientes
 
-app.get("/index",function(req,res){
-  res.render("inicio")
-});
+//Aqui Escribi Churrin
 
 
 
@@ -71,5 +71,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
+return app;
+}// return app
 
-module.exports = app;
+module.exports = returnApp;
