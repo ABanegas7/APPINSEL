@@ -1,6 +1,6 @@
 {
   "uploadOnSave": true,
-  "hostname": "192.168.150.129",
+  "hostname": "192.168.127.128",
   "port": "22",
   "target": "/root/InselApp",
   "ignore": [
@@ -8,6 +8,6 @@
     "node_modules/**"
   ],
   "username": "root",
-  "password": "terres",
+  "password": "seminario",
   "transport": "scp"
 }
