@@ -24,8 +24,8 @@ app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+// app.use('/', routes);
+// app.use('/users', users);
 
 //para llamara los modulos se usa la funcion require
 //la uri del modulo y debe especificar
@@ -35,7 +35,30 @@ var api = require('./routes/api.js')(db);
 app.use('/api/v1', api);
 //http://localhost:3000/api/v1/obtenerclientes
 
-//Aqui Escribi Churrin
+app.get("/",function(req,res){
+  res.render("login");
+});
+
+app.post("/login",function(req,res){
+  res.redirect("/inicio"); //cuando se tenga base ira a validar
+});
+
+app.get("/inicio",function(req,res){
+  res.render("inicio");
+});
+
+app.get("/productos",function(req,res){
+  res.render("productos");
+});
+
+app.get("/compras",function(req,res){
+  res.render("compras");
+});
+
+app.get("/productos",function(req,res){
+  res.render("historial");
+});
+
 
 
 
