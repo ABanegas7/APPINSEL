@@ -53,6 +53,13 @@ function api(db){
             var newcli = {};
             newcli.cod = req.body.cod;
             newcli.nombre = req.body.nombre;
+            newcli.apellido = req.body.apellido;
+            newcli.usuario = req.body.usuario;
+            newcli.contrasena = req.body.contrasena;
+            newcli.correo = req.body.correo;
+            newcli.telefono = req.body.telefono;
+            newcli.direccion = req.body.direccion;
+            newcli.historial = "";
             clientes.insertOne(newcli, function(err, doc){
                 if(err){
                     res.status(500).json({"error":err});
