@@ -32,6 +32,22 @@ function api(db){
         }
     ) // obtenerCliente
 
+    apirouter.post("/obtenerusuario",
+        function(req, res){
+            //var query = {"cod": req.params.cod};
+            clientes.findOne({$and:[{"usuario": req.body.txtUsu},{"contrasena": req.body.txtCont}]}, function(err, doc){
+                if(doc==null){
+                    //res.status(500).json({"error":err});
+                    res.redirect("/");
+                }else{
+                    res.redirect("/inicio");
+                    //res.status(200).json({"cliente":doc});
+                }
+            });
+
+        }
+    ) // obtenerusuario
+
     apirouter.post("/modificarcliente/:cod",
         function(req, res){
             var query = {"cod": req.params.cod};
