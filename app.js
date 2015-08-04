@@ -55,8 +55,8 @@ app.get("/compras",function(req,res){
   res.render("compras");
 });
 
-app.get("/productos",function(req,res){
-  res.render("historial");
+app.get("/historial",function(req,res){
+  res.render("hitorial");
 });
 
 
