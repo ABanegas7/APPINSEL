@@ -1,37 +1,57 @@
+<!--
 <div id="home" data-role="page">
-  <div data-role="header" data-position="fixed">
-    <div data-role="navbar">
-      <ul>
-        <li>
-          <a href="/inicio"><img src="/imagenes/home.png"/></a>
-        </li>
-        <li>
-          <a href="/productos"><img src="/imagenes/catalogo.png"/></a>
-        </li>
-        <li>
-          <a href="/compras"><img src="/imagenes/compras.png"/></a>
-        </li>
-        <li>
-          <a href="/historial"><img src="/imagenes/historial.png"/></a>
-        </li>
-        <li>
-          <a href="/"><img src="/imagenes/salir.png"/></a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div role="main" class="ui-content">
-    <ol>
-      <li>Camaras</li>
-      <li>Alarmas</li>
-      <li>Sensor de Movimiento</li>
-      <li>Detectores de Humo</li>
-      <li>Detectores de Calor</li>
-    </ol>
-  </div>
-  <div data-position="fixed" data-role="footer">
+  <div data-role="header" data-position="fixed" >
+
+  </div> -->
+  <div data-role="page" id="pro">
+        <div data-role="header" data-position="fixed">
+
+          <div data-role="navbar" class="nav">
+            <ul>
+              <li>
+                <a href="/inicio"><img src="/imagenes/home.png"/></a>
+              </li>
+              <li>
+                <a href="/productos"><img src="/imagenes/catalogo.png"/></a>
+              </li>
+              <li>
+                <a href="/compras"><img src="/imagenes/compras.png"/></a>
+              </li>
+              <li>
+                <a href="/historial"><img src="/imagenes/historial.png"/></a>
+              </li>
+              <li>
+                <a href="/"><img src="/imagenes/salir.png"/></a>
+              </li>
+            </ul>
+          </div>
+
+
+            <h4>Productos</h4>
+        </div>
+        <div role="main" class="ui-content">
+            <ul data-role="listview" id="productosList">
+                <li>
+                    Item 1
+                </li>
+                <li>
+                    Item 2
+                </li>
+                <li>
+                    Item 3
+                </li>
+                <li>
+                    Item 4
+                </li>
+                <li>
+                    Item 5
+                </li>
+            </ul>
+        </div>
+    <div data-position="fixed" data-role="footer">
     <p class="letras">
       hecho por: Grupo SW 2015 2 Periodo
     </p>
   </div>
 </div>
+<script src="javascript/productos.js"></script>

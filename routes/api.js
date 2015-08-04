@@ -4,7 +4,7 @@ var apirouter = express.Router();
 function api(db){
     //Colecciones
     var clientes = db.collection("Clientes");
-    var producto = db.collection("Productos");
+    var productos = db.collection("Productos");
     //Rutas
     apirouter.get("/obtenerclientes",
         function(req, res){
@@ -98,6 +98,37 @@ function api(db){
         }
     ) // eliminarcliente
 
+// Productos
+apirouter.get("/obtenerproductos",
+    function(req, res){
+        var query = {};
+        productos.find(query).toArray(function(err, vproductos){
+            if(err){
+                res.status(500).json({"error":err});
+            }else{
+                res.status(200).json({"Productos":vproductos});
+            }
+        }) // busqueda Clientes
+    }
+) // obtenerproductos
+apirouter.put("/agregarproducto",
+    function(req, res){
+        console.log(req.body);
+        var newpro = {};
+        newpro.codp = req.body.codp;
+        newpro.nombre = req.body.nombre;
+        newpro.des = req.body.des;
+        newpro.precio = req.body.precio;
+        newpro.existencia = req.body.existencia;
+        productos.insertOne(newpro, function(err, doc){
+            if(err){
+                res.status(500).json({"error":err});
+            }else{
+                res.status(200).json({"producto":doc});
+            }
+        });
+    }
+) // agregarproducto
 
     return apirouter;
 }
