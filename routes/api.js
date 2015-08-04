@@ -4,7 +4,7 @@ var apirouter = express.Router();
 function api(db){
     //Colecciones
     var clientes = db.collection("Clientes");
-    //var producto = db.collection("Productos");
+    var producto = db.collection("Productos");
     //Rutas
     apirouter.get("/obtenerclientes",
         function(req, res){
@@ -17,7 +17,7 @@ function api(db){
                 }
             }) // busqueda Clientes
         }
-    ) // obtenerLibros
+    ) // obtenerclientes
     apirouter.get("/obtenercliente/:cod",
         function(req, res){
             var query = {"cod": req.params.cod};
